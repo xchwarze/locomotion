@@ -637,6 +637,10 @@ CUSTOM
   background: rgba(107, 115, 114, 0.71);
 }
 
+#hero .hero-container {
+  padding-top: 0;
+}
+
 #footer {
   background: #868383;
   margin-top: 80px;
