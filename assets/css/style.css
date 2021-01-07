@@ -1063,7 +1063,7 @@ CUSTOM
 ------------------------------*/
 #header {
   /* a0a0a0 es el color original que usaba loco */
-  background: #a0a0a0;
+  background: transparent;
 }
 
 #header.header-scrolled {
