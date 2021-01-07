@@ -660,8 +660,16 @@ CUSTOM
   background: #a0a0a0;
 }
 
+/* estos cambios del toggle y overly son para que sea mas consistente con el efecto del header 
+   aunque no me termina de convencer que por tocar el overly se me ve por encima el logo en ese caso */
+.mobile-nav-toggle {
+  top: unset;
+  margin-top: 7px;
+}
+
 .mobile-nav-overly {
   background: rgba(0, 8, 9, 0.84);
+  z-index: unset;
 }
 
 .mobile-nav a {
