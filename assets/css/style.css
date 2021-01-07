@@ -681,3 +681,8 @@ CUSTOM
   font-weight: bold;
   color: #fff;
 }
+
+/* fix mobile-nav-overly */
+.back-to-top {
+  z-index: 9997;
+}
