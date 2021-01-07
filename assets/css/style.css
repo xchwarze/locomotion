@@ -669,7 +669,6 @@ CUSTOM
 
 .mobile-nav-overly {
   background: rgba(0, 8, 9, 0.84);
-  z-index: unset;
 }
 
 .mobile-nav a {
