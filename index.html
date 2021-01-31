@@ -47,6 +47,7 @@
   <link href="assets/js/video/videojs-chromecast.css" rel="stylesheet">
   -->
   <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+  <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
 </head>
 
 <body>
@@ -63,7 +64,7 @@
           <li><a href="#live">Ver</a></li>
           <li><a href="#iptv">IPTV</a></li>
           <li><a href="#about">Proyecto</a></li>
-          <li><a href="http://epg.locomotiontv.com/hoy.php" target="_blank">Hoy</a></li>
+          <li><a href="http://epg.locomotiontv.com/guia.php" target="_blank">Hoy</a></li>
           <li><a href="http://locomotiontv.com/imgs/loco/horarios.png" target="_blank">Horarios</a></li>
           <li><a href="https://www.facebook.com/locomotionxtv/" target="_blank">Facebook</a></li>
           <li><a href="https://www.paypal.com/paypalme/jxtv" target="_blank">Donativos</a></li>
@@ -115,14 +116,16 @@
           <video
             id="loco-video"
             class="video-js vjs-default-skin vjs-big-play-centered vjs-4-3"
-            controls
             preload="auto"
             poster="assets/img/video-back.jpg"
             data-setup="{}"
             crossorigin="anonymous"
+            controls
           >
-          	<!-- si uso esta url github me rompe porque no es ssl -->
-            <source src="http://animeloving.net:81/lococh_live/stream/index.m3u8" type="application/vnd.apple.mpegURL">
+          	<!-- si uso estas url github me rompe porque no son ssl -->
+            <source src="http://51.222.85.85:81/hls/loco/index.m3u8" type="application/vnd.apple.mpegURL" label="Server 1" selected="true">
+            <source src="http://locomotiontv.com/envivo/loco_ch/stream.m3u8" type="application/vnd.apple.mpegURL" label="Server 2">
+            <source src="http://locomotiontv.com/envivo/loco_ch_low/stream.m3u8" type="application/vnd.apple.mpegURL" label="LQ">
             <p class="vjs-no-js">
               Para ver este video habilite JavaScript
             </p>
@@ -217,10 +220,12 @@
   <script src="assets/js/video/videojs-contrib-hls.js"></script>
   -->
   <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
-
-  <script> 
-    /* me parecio mejor hacerlo con css y vjs-4-3
+  <script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
+  <script>
     var player = videojs('loco-video');
+    player.controlBar.addChild('QualitySelector');
+
+    /* me parecio mejor hacerlo con css y vjs-4-3
     player.on('ready', function() {
       var thisPlayer = this;
 
@@ -248,7 +253,6 @@
       window.onresize = resizeVideoJs;
     });
     */
-
 
     // aca le podria restar los 80px para que el footer entre
     $(window).ready(function() {
